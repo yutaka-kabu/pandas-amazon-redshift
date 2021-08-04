@@ -1,0 +1,62 @@
+{
+    "ExpectedDf": {
+        "Data": {
+            "numeric1": [ "1.41", "1.73", null ]
+        },
+        "Transformation": [
+            {
+                "FunctionName": "to_numeric"
+            }
+        ]
+    },
+    "Sql": "SELECT * FROM floattbl",
+    "GetStatementResultResponse" : {
+        "default": {
+            "ColumnMetadata": [
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": true,
+                    "label": "numeric1",
+                    "length": 0,
+                    "name": "numeric1",
+                    "nullable": 1,
+                    "precision": 10,
+                    "scale": 2,
+                    "schemaName": "public",
+                    "tableName": "numerictbl",
+                    "typeName": "numeric"
+                }
+            ],
+            "Records": [
+                [
+                    {
+                        "stringValue": "1.41"
+                    }
+                ],
+                [
+                    {
+                        "stringValue": "1.73"
+                    }
+                ],
+                [
+                    {
+                        "isNull": true
+                    }
+                ]
+            ],
+            "TotalNumRows": 3,
+            "ResponseMetadata": {
+                "RequestId": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                "HTTPStatusCode": 200,
+                "HTTPHeaders": {
+                    "x-amzn-requestid": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                    "content-type": "application/x-amz-json-1.1",
+                    "content-length": "332",
+                    "date": "Tue, 22 Jun 2021 21:30:34 GMT"
+                },
+                "RetryAttempts": 0
+            }
+        }
+    }
+}

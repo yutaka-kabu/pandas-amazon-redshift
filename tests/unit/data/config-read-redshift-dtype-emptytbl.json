@@ -1,0 +1,77 @@
+{
+    "ExpectedDf": {
+        "Data": {
+            "id": [],
+            "name": []
+        },
+        "Transformation": [
+            {
+                "FunctionName": "cast_col",
+                "Arguments": {
+                    "id": { "dtype": "int32" },
+                    "name": {"dtype": "object" }
+                }
+            },
+            {
+                "FunctionName": "drop_index",
+                "Type": "DataFrame"
+            }
+        ]
+    },
+    "ActualDf": {
+        "Transformation": [
+            {
+                "FunctionName": "drop_index",
+                "Type": "DataFrame"
+            }
+        ]
+    },
+    "Sql": "SELECT * from empty_tbl",
+    "GetStatementResultResponse" : {
+        "default": {
+            "ColumnMetadata": [
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": true,
+                    "label": "id",
+                    "length": 0,
+                    "name": "id",
+                    "nullable": 1,
+                    "precision": 10,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "empty_tbl",
+                    "typeName": "int4"
+                },
+                {
+                    "isCaseSensitive": true,
+                    "isCurrency": false,
+                    "isSigned": false,
+                    "label": "name",
+                    "length": 0,
+                    "name": "name",
+                    "nullable": 1,
+                    "precision": 4,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "empty_tbl",
+                    "typeName": "varchar"
+                }
+            ],
+            "Records": [],
+            "TotalNumRows": 0,
+            "ResponseMetadata": {
+                "RequestId": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                "HTTPStatusCode": 200,
+                "HTTPHeaders": {
+                    "x-amzn-requestid": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                    "content-type": "application/x-amz-json-1.1",
+                    "content-length": "263",
+                    "date": "Tue, 22 Jun 2021 21:30:34 GMT"
+                },
+                "RetryAttempts": 0
+            }
+        }
+    }
+}

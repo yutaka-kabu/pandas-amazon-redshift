@@ -1,0 +1,190 @@
+{
+    "ExpectedDf": {
+        "Data": {
+            "int1": [ 4, -32768, 21 ],
+            "int2": [ 2, 153, -2147483648 ],
+            "int3": [ 10000000000, -19, 100 ],
+            "int4": [ 3, null, 32767 ],
+            "int5": [ null, 2147483647, 1000 ],
+            "int6": [ 47, 199, null ]
+        },
+        "Transformation": [
+            {
+                "FunctionName": "cast_col",
+                "Arguments": {
+                    "int1": { "dtype": "int16" },
+                    "int2": { "dtype": "int32" },
+                    "int3": { "dtype": "int64" },
+                    "int4": { "dtype": "Int64" },
+                    "int5": { "dtype": "Int64" },
+                    "int6": { "dtype": "Int64" }
+                }
+            }
+        ]
+    },
+    "Sql": "SELECT * FROM inttbl",
+    "GetStatementResultResponse" : {
+        "default": {
+            "ColumnMetadata": [
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": true,
+                    "label": "int1",
+                    "length": 0,
+                    "name": "int1",
+                    "nullable": 0,
+                    "precision": 5,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "inttbl",
+                    "typeName": "int2"
+                },
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": true,
+                    "label": "int2",
+                    "length": 0,
+                    "name": "int2",
+                    "nullable": 0,
+                    "precision": 10,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "inttbl",
+                    "typeName": "int4"
+                },
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": true,
+                    "label": "int3",
+                    "length": 0,
+                    "name": "int3",
+                    "nullable": 0,
+                    "precision": 19,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "inttbl",
+                    "typeName": "int8"
+                },
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": true,
+                    "label": "int4",
+                    "length": 0,
+                    "name": "int4",
+                    "nullable": 1,
+                    "precision": 5,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "inttbl",
+                    "typeName": "int2"
+                },
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": true,
+                    "label": "int5",
+                    "length": 0,
+                    "name": "int5",
+                    "nullable": 1,
+                    "precision": 10,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "inttbl",
+                    "typeName": "int4"
+                },
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": true,
+                    "label": "int6",
+                    "length": 0,
+                    "name": "int6",
+                    "nullable": 1,
+                    "precision": 19,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "inttbl",
+                    "typeName": "int8"
+                }
+            ],
+            "Records": [
+                [
+                    {
+                        "longValue": 4
+                    },
+                    {
+                        "longValue": 2
+                    },
+                    {
+                        "longValue": 10000000000
+                    },
+                    {
+                        "longValue": 3
+                    },
+                    {
+                        "isNull": true
+                    },
+                    {
+                        "longValue": 47
+                    }
+                ],
+                [
+                    {
+                        "longValue": -32768
+                    },
+                    {
+                        "longValue": 153
+                    },
+                    {
+                        "longValue": -19
+                    },
+                    {
+                        "isNull": true
+                    },
+                    {
+                        "longValue": 2147483647
+                    },
+                    {
+                        "longValue": 199
+                    }
+                ],
+                [
+                    {
+                        "longValue": 21
+                    },
+                    {
+                        "longValue": -2147483648
+                    },
+                    {
+                        "longValue": 100
+                    },
+                    {
+                        "longValue": 32767
+                    },
+                    {
+                        "longValue": 1000
+                    },
+                    {
+                        "isNull": true
+                    }
+                ]
+            ],
+            "TotalNumRows": 3,
+            "ResponseMetadata": {
+                "RequestId": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                "HTTPStatusCode": 200,
+                "HTTPHeaders": {
+                    "x-amzn-requestid": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                    "content-type": "application/x-amz-json-1.1",
+                    "content-length": "1592",
+                    "date": "Tue, 22 Jun 2021 21:30:34 GMT"
+                },
+                "RetryAttempts": 0
+            }
+        }
+    }
+}

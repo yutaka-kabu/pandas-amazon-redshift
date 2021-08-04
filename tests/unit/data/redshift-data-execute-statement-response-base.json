@@ -1,0 +1,16 @@
+{
+    "CreatedAt": "Wed, 23 Jun 2021 06:30:33.590000",
+    "DbUser": "testuser",
+    "Id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXX",
+    "ResponseMetadata": {
+        "RequestId": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY1",
+        "HTTPStatusCode": 200,
+        "HTTPHeaders": {
+            "x-amzn-requestid": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY1",
+            "content-type": "application/x-amz-json-1.1",
+            "content-length": "152",
+            "date": "Tue, 22 Jun 2021 21:30:33 GMT"
+        },
+        "RetryAttempts": 0
+    }
+}

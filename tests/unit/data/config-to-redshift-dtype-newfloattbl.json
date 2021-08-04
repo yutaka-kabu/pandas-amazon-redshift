@@ -1,0 +1,39 @@
+{
+    "InputDf": {
+        "Data": {
+            "col1": [ "1.0e-1000", "9.999e+1", "-9.999e+1" ],
+            "col2": [ 9.99999e+17, -9.99999e+17, null ],
+            "col3": [ 0, 1.1755e-38, 3.4028e+38 ],
+            "col4": [ null, -1.1755e-38, -3.4028e+38 ],
+            "col5": [ 0, 2.225074e-308, 1.797693e+308 ],
+            "col6": [ null, -2.225074e-308, -1.797693e+308 ],
+            "col7": [ null, null, null ]
+        },
+        "Transformation": [
+            {
+                "FunctionName": "cast_col",
+                "Arguments": {
+                    "col1": { "dtype": "float128" },
+                    "col2": { "dtype": "float128" },
+                    "col3": { "dtype": "float64" },
+                    "col4": { "dtype": "float64" },
+                    "col5": { "dtype": "float64" },
+                    "col6": { "dtype": "float64" },
+                    "col7": { "dtype": "float64" }
+                }
+            }
+        ]
+    },
+    "ToRedshiftDtype": {
+        "col1": "DECIMAL(4,2)",
+        "col2": "NUMERIC",
+        "col3": "ReaL",
+        "col4": "FLOAT4",
+        "col5": "DOUBLE PRECISION",
+        "col6": "floaT8",
+        "col7": "FLOAT"
+    },
+    "TableName": "newfloattbl",
+    "ExpectedCreateTblSql": "CREATE TABLE \"public\".\"newfloattbl\" (\"col1\" NUMERIC(4,2),\"col2\" NUMERIC,\"col3\" REAL,\"col4\" REAL,\"col5\" DOUBLE PRECISION,\"col6\" DOUBLE PRECISION,\"col7\" DOUBLE PRECISION);",
+    "ExpectedInsertSql": "INSERT INTO \"public\".\"newfloattbl\" (\"col1\",\"col2\",\"col3\",\"col4\",\"col5\",\"col6\",\"col7\") VALUES (0.00,999999000000000000,0.0,NULL,0.0,NULL,NULL),(99.99,-999999000000000000,1.1755e-38,-1.1755e-38,2.225074e-308,-2.225074e-308,NULL),(-99.99,NULL,3.4028e+38,-3.4028e+38,1.797693e+308,-1.797693e+308,NULL);"
+}
