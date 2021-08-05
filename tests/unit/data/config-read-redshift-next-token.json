@@ -1,0 +1,138 @@
+{
+    "ExpectedDf": {
+        "Data": {
+            "col": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        },
+        "Transformation": [
+            {
+                "FunctionName": "cast_col",
+                "Arguments": {
+                    "col": { "dtype": "int32" }
+                }
+            }
+        ]
+    },
+    "Sql": "SELECT * FROM to_test_next_token",
+    "GetStatementResultResponse": {
+        "default": {
+            "ColumnMetadata": [
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": true,
+                    "label": "col",
+                    "length": 0,
+                    "name": "col",
+                    "nullable": 0,
+                    "precision": 10,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "inttbl",
+                    "typeName": "int4"
+                }
+            ],
+            "NextToken": "0",
+            "Records": [
+                [
+                    {
+                        "longValue": 1
+                    }
+                ],
+                [
+                    {
+                        "longValue": 1
+                    }
+                ],
+                [
+                    {
+                        "longValue": 1
+                    }
+                ],
+                [
+                    {
+                        "longValue": 1
+                    }
+                ],
+                [
+                    {
+                        "longValue": 1
+                    }
+                ],
+                [
+                    {
+                        "longValue": 1
+                    }
+                ],
+                [
+                    {
+                        "longValue": 1
+                    }
+                ],
+                [
+                    {
+                        "longValue": 1
+                    }
+                ],
+                [
+                    {
+                        "longValue": 1
+                    }
+                ],
+                [
+                    {
+                        "longValue": 1
+                    }
+                ]
+            ],
+            "TotalNumRows": 11,
+            "ResponseMetadata": {
+                "RequestId": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                "HTTPStatusCode": 200,
+                "HTTPHeaders": {
+                    "x-amzn-requestid": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                    "content-type": "application/x-amz-json-1.1",
+                    "content-length": "1592",
+                    "date": "Tue, 22 Jun 2021 21:30:34 GMT"
+                },
+                "RetryAttempts": 0
+            }
+        },
+        "0": {
+            "ColumnMetadata": [
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": true,
+                    "label": "col",
+                    "length": 0,
+                    "name": "col",
+                    "nullable": 0,
+                    "precision": 10,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "inttbl",
+                    "typeName": "int4"
+                }
+            ],
+            "Records": [
+                [
+                    {
+                        "longValue": 1
+                    }
+                ]
+            ],
+            "TotalNumRows": 11,
+            "ResponseMetadata": {
+                "RequestId": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY4",
+                "HTTPStatusCode": 200,
+                "HTTPHeaders": {
+                    "x-amzn-requestid": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY4",
+                    "content-type": "application/x-amz-json-1.1",
+                    "content-length": "1592",
+                    "date": "Tue, 22 Jun 2021 21:30:34 GMT"
+                },
+                "RetryAttempts": 0
+            }
+        }
+    }
+}

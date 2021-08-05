@@ -1,0 +1,17 @@
+{
+    "StreamDescriptionSummary": {
+        "StreamName": "test",
+        "StreamARN": "arn:aws:kinesis:ap-northeast-1:123456789012:stream/test",
+        "StreamStatus": "ACTIVE",
+        "RetentionPeriodHours": 24,
+        "StreamCreationTimestamp": "Thu, 17 Jun 2021 07:17:29.123456",
+        "EnhancedMonitoring": [
+            {
+                "ShardLevelMetrics": []
+            }
+        ],
+        "EncryptionType": "NONE",
+        "OpenShardCount": 64,
+        "ConsumerCount": 0
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "CreatedAt": "Wed, 23 Jun 2021 06:30:33.590000",
+    "Duration": 160639721,
+    "HasResultSet": true,
+    "RedshiftPid": 18920,
+    "RedshiftQueryId": -1,
+    "ResultRows": -1,
+    "ResultSize": -1,
+    "Status": "FINISHED",
+    "UpdatedAt": "Wed, 23 Jun 2021 06:30:34.330000",
+    "ResponseMetadata": {
+        "RequestId": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY2",
+        "HTTPStatusCode": 200,
+        "HTTPHeaders": {
+            "x-amzn-requestid": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY2",
+            "content-type": "application/x-amz-json-1.1",
+            "content-length": "319",
+            "date": "Tue, 22 Jun 2021 21:30:34 GMT"
+        }, 
+        "RetryAttempts": 0
+    }
+}

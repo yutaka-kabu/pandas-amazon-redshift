@@ -1,0 +1,82 @@
+{
+    "ExpectedDf": {
+        "Data": {
+            "float1": [ 3.1415, null ],
+            "float2": [ null, 2.718281828 ]
+        },
+        "Transformation": [
+            {
+                "FunctionName": "cast_col",
+                "Arguments": {
+                    "float1": { "dtype": "float64" },
+                    "float2": { "dtype": "float64" }
+                }
+            }
+        ]
+    },
+    "Sql": "SELECT * FROM floattbl",
+    "GetStatementResultResponse" : {
+        "default": {
+            "ColumnMetadata": [
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": true,
+                    "label": "float1",
+                    "length": 0,
+                    "name": "float1",
+                    "nullable": 1,
+                    "precision": 8,
+                    "scale": 8,
+                    "schemaName": "public",
+                    "tableName": "floattbl",
+                    "typeName": "float4"
+                },
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": true,
+                    "label": "float2",
+                    "length": 0,
+                    "name": "float2",
+                    "nullable": 1,
+                    "precision": 17,
+                    "scale": 17,
+                    "schemaName": "public",
+                    "tableName": "floattbl",
+                    "typeName": "float8"
+                }
+            ],
+            "Records": [
+                [
+                    {
+                        "stringValue": "3.1415"
+                    },
+                    {
+                        "isNull": true
+                    }
+                ],
+                [
+                    {
+                        "isNull": true
+                    },
+                    {
+                        "doubleValue": 2.718281828
+                    }
+                ]
+            ],
+            "TotalNumRows": 2,
+            "ResponseMetadata": {
+                "RequestId": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                "HTTPStatusCode": 200,
+                "HTTPHeaders": {
+                    "x-amzn-requestid": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                    "content-type": "application/x-amz-json-1.1",
+                    "content-length": "554",
+                    "date": "Tue, 22 Jun 2021 21:30:34 GMT"
+                },
+                "RetryAttempts": 0
+            }
+        }
+    }
+}

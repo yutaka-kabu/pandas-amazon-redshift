@@ -1,0 +1,33 @@
+{
+    "Vpc": {
+        "CidrBlock": "10.0.0.0/16",
+        "DhcpOptionsId": "dopt-a0144cc7",
+        "State": "deleted",
+        "VpcId": "vpc-048ec069f795618f5",
+        "OwnerId": "XXXXXXXXXXXX",
+        "InstanceTenancy": "default",
+        "Ipv6CidrBlockAssociationSet": [],
+        "CidrBlockAssociationSet": [
+            {
+                "AssociationId": "vpc-cidr-assoc-051a032XXXXXXXXXX",
+                "CidrBlock": "10.0.0.0/16",
+                "CidrBlockState": {
+                    "State": "associated"
+                }
+            }
+        ],
+        "IsDefault": false,
+        "Tags": []
+    },
+    "ResponseMetadata": {
+        "RequestId": "3315b887-XXXX-XXXX-b5ac-b4ceb0350a95",
+        "HTTPStatusCode": 200,
+        "HTTPHeaders": {
+            "content-type": "text/xml;charset=UTF-8",
+            "content-length": "923",
+            "date": "Thu, 19 Sep 2019 06:43:33 GMT",
+            "server": "AmazonEC2"
+        },
+        "RetryAttempts":0
+    }
+}

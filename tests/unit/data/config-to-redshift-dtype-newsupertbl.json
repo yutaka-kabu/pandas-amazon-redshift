@@ -1,0 +1,19 @@
+{
+    "InputDf": {
+        "Data": {
+            "col1": [ { "a": 1 }, { "a": 2 } ],
+            "col2": [ null, "{\"b\": 3}" ],
+            "col3": [ 1, [ 1, 2, 3 ] ],
+            "col4": [ 0.1, null ]
+        }
+    },
+    "ToRedshiftDtype": {
+        "col1": "super",
+        "col2": "SUPER",
+        "col3": "SUPER",
+        "col4": "SUPER"
+    },
+    "TableName": "newsupertbl",
+    "ExpectedCreateTblSql": "CREATE TABLE \"public\".\"newsupertbl\" (\"col1\" SUPER,\"col2\" SUPER,\"col3\" SUPER,\"col4\" SUPER);",
+    "ExpectedInsertSql": "INSERT INTO \"public\".\"newsupertbl\" (\"col1\",\"col2\",\"col3\",\"col4\") VALUES (JSON_PARSE('{\"a\": 1}'),NULL,1,0.1),(JSON_PARSE('{\"a\": 2}'),'{\"b\": 3}',JSON_PARSE('[1, 2, 3]'),NULL);"
+}

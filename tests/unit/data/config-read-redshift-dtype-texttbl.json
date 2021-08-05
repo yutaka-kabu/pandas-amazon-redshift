@@ -1,0 +1,73 @@
+{
+    "ExpectedDf": {
+        "Data": {
+            "text1": [ "DEV", "PRD" ],
+            "text2": [ "I am now testing this feature", null ]
+        }
+    },    
+    "Sql": "SELECT * FROM texttbl",
+    "GetStatementResultResponse" : {
+        "default": {
+            "ColumnMetadata":[
+                {
+                    "isCaseSensitive": true,
+                    "isCurrency": false,
+                    "isSigned": false,
+                    "label": "text1",
+                    "length": 0,
+                    "name": "text1",
+                    "nullable": 1,
+                    "precision": 3,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "texttbl",
+                    "typeName": "bpchar"
+                },
+                {
+                    "isCaseSensitive": true,
+                    "isCurrency": false,
+                    "isSigned": false,
+                    "label": "text2",
+                    "length": 0,
+                    "name": "text2",
+                    "nullable": 1,
+                    "precision": 255,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "texttbl",
+                    "typeName": "varchar"
+                }
+            ],
+            "Records": [
+                [
+                    {
+                        "stringValue": "DEV"
+                    },
+                    {
+                        "stringValue": "I am now testing this feature"
+                    }
+                ],
+                [
+                    {
+                        "stringValue": "PRD"
+                    },
+                    {
+                        "isNull": true
+                    }
+                ]
+            ],
+            "TotalNumRows": 2,
+            "ResponseMetadata": {
+                "RequestId": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                "HTTPStatusCode": 200,
+                "HTTPHeaders": {
+                    "x-amzn-requestid": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                    "content-type": "application/x-amz-json-1.1",
+                    "content-length": "572",
+                    "date": "Tue, 22 Jun 2021 21:30:34 GMT"
+                },
+                "RetryAttempts": 0
+            }
+        }
+    }
+}
