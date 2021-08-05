@@ -48,6 +48,8 @@ setup(
     keywords="data",
     install_requires=INSTALL_REQUIRES,
     python_requires=">=3.7.1",
-    packages=find_packages(exclude=["tests*"]),
+    packages=find_packages(
+        exclude=["boto3_mock*", "tests*"]
+    ),
     test_suite="tests",
 )
