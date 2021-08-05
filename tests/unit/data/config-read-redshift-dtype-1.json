@@ -1,0 +1,55 @@
+{
+    "ExpectedDf": {
+        "Data": {
+            "?column?": [1]
+        },
+        "Transformation": [
+            {
+                "FunctionName": "cast_col",
+                "Arguments": {
+                    "?column?": { "dtype": "int32" }
+                }
+            }
+        ]
+    },
+    "Sql": "SELECT 1",
+    "GetStatementResultResponse" : {
+        "default": {
+            "ColumnMetadata": [
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": true,
+                    "label": "?column?",
+                    "length": 0,
+                    "name": "?column?",
+                    "nullable": 1,
+                    "precision": 10,
+                    "scale": 0,
+                    "schemaName": "",
+                    "tableName": "",
+                    "typeName": "int4"
+                }
+            ],
+            "Records": [
+                [
+                    {
+                        "longValue": 1
+                    }
+                ]
+            ],
+            "TotalNumRows": 1,
+            "ResponseMetadata": {
+                "RequestId": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                "HTTPStatusCode": 200,
+                "HTTPHeaders": {
+                    "x-amzn-requestid": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                    "content-type": "application/x-amz-json-1.1",
+                    "content-length": "263",
+                    "date": "Tue, 22 Jun 2021 21:30:34 GMT"
+                },
+                "RetryAttempts": 0
+            }
+        }
+    }
+}

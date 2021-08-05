@@ -1,0 +1,129 @@
+{
+    "type": "object",
+    "required": [
+        "StreamDescriptionSummary"
+    ],
+    "properties": {
+        "StreamDescriptionSummary": {
+            "type": "object",
+            "required": [
+                "StreamName",
+                "StreamARN",
+                "StreamStatus",
+                "RetentionPeriodHours",
+                "StreamCreationTimestamp",
+                "EnhancedMonitoring",
+                "OpenShardCount"
+            ],
+            "properties": {
+                "StreamName": {
+                    "type": "string",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern":"[a-zA-Z0-9_.-]+"
+                },
+                "StreamARN": {
+                    "type": "string",
+                    "maxLength": 2048,
+                    "minLength": 1,
+                    "pattern": "arn:aws.*:kinesis:.*:\\d{12}:stream/.+"
+                },
+                "StreamStatus": {
+                    "type": "string",
+                    "enum":[
+                        "CREATING",
+                        "DELETING",
+                        "ACTIVE",
+                        "UPDATING"
+                    ]
+                },
+                "RetentionPeriodHours": {
+                    "type": "integer"
+                },
+                "StreamCreationTimestamp": {
+                    "type": "string",
+                    "pattern": "^(Mon|Tue|Wed|Thu|Fri|Sat|Sun), [0-9]{2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) [0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{6}$",
+                    "description": "timestamp"
+                },
+                "EnhancedMonitoring": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "ShardLevelMetrics": {
+                                "type": "array",
+                                "items": {
+                                    "type":"string",
+                                    "enum":[
+                                        "IncomingBytes",
+                                        "IncomingRecords",
+                                        "OutgoingBytes",
+                                        "OutgoingRecords",
+                                        "WriteProvisionedThroughputExceeded",
+                                        "ReadProvisionedThroughputExceeded",
+                                        "IteratorAgeMilliseconds",
+                                        "ALL"
+                                    ]
+                                },
+                                "maxItems": 7,
+                                "minItems": 1
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                },
+                "EncryptionType": {
+                    "type":"string",
+                    "enum":[
+                        "NONE",
+                        "KMS"
+                    ]
+                },
+                "KeyId": {
+                    "type":"string",
+                    "maxLength": 2048,
+                    "minLength": 1
+                },
+                "OpenShardCount": {
+                    "type":"integer",
+                    "maximum": 1000000,
+                    "minimum": 0
+                },
+                "ConsumerCount": {
+                    "type":"integer",
+                    "maximum": 1000000,
+                    "minimum": 0
+                }
+            },
+            "additionalProperties": false
+        },
+        "ResponseMetadata": {
+            "type": "object",
+            "required": [
+                "RequestId",
+                "HTTPStatusCode",
+                "HTTPHeaders",
+                "RetryAttempts"
+            ],
+            "properties": {
+                "RequestId": {
+                    "type": "string"
+                },
+                "HTTPStatusCode": {
+                    "type": "integer"
+                },
+                "HTTPHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "RetryAttempts": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": true
+        }
+    },
+    "additionalProperties": false
+}

@@ -1,0 +1,174 @@
+{
+    "ExpectedDf": {
+        "Data": {
+            "date": [ "2021-07-01", "2021-07-02", null ],
+            "timestamp1": [ "2021-07-01 10:00:00", null, "2021-07-03 10:00:00" ],
+            "timestamp2": [ null, "2021-07-02 19:00:00+0900", "2021-07-03 04:00:00-0600" ],
+            "time1": [ "10:00:00", null, null ],
+            "time2": [ null, "19:00:00+0900", "04:00:00-0600" ]
+        },
+        "Transformation": [
+            {
+                "FunctionName": "to_datetime",
+                "Arguments": {
+                    "timestamp2": { "utc": true },
+                    "time2": { "utc": true }
+                }
+            },
+            {
+                "FunctionName": "to_date",
+                "Columns": [ "date" ]
+            },
+            {
+                "FunctionName": "to_time",
+                "Columns": [ "time1" ]
+            },
+            {
+                "FunctionName": "to_timetz",
+                "Columns": [ "time2" ]
+            }
+        ]
+    },
+    "Sql": "SELECT * from datetimetbl",
+    "GetStatementResultResponse" : {
+        "default": {
+            "ColumnMetadata": [
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": false,
+                    "label": "date",
+                    "length": 0,
+                    "name": "date",
+                    "nullable": 1,
+                    "precision": 13,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "datetimetbl",
+                    "typeName": "date"
+                },
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": false,
+                    "label": "timestamp1",
+                    "length": 0,
+                    "name": "timestamp1",
+                    "nullable": 1,
+                    "precision": 29,
+                    "scale": 6,
+                    "schemaName": "public",
+                    "tableName": "datetimetbl",
+                    "typeName": "timestamp"
+                },
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": false,
+                    "label": "timestamp2",
+                    "length": 0,
+                    "name": "timestamp2",
+                    "nullable": 1,
+                    "precision": 35,
+                    "scale": 6,
+                    "schemaName": "public",
+                    "tableName": "datetimetbl",
+                    "typeName": "timestamptz"
+                },
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": false,
+                    "label": "time1",
+                    "length": 0,
+                    "name": "time1",
+                    "nullable": 1,
+                    "precision": 15,
+                    "scale": 6,
+                    "schemaName": "public",
+                    "tableName": "datetimetbl",
+                    "typeName": "time"
+                },
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": false,
+                    "label": "time2",
+                    "length": 0,
+                    "name": "time2",
+                    "nullable": 1,
+                    "precision": 21,
+                    "scale": 6,
+                    "schemaName": "public",
+                    "tableName": "datetimetbl",
+                    "typeName": "timetz"
+                }
+            ],
+            "Records": [
+                [
+                    {
+                        "stringValue": "2021-07-01"
+                    },
+                    {
+                        "stringValue": "2021-07-01 10:00:00"
+                    },
+                    {
+                        "isNull": true
+                    },
+                    {
+                        "stringValue": "10:00:00"
+                    },
+                    {
+                        "isNull": true
+                    }
+                ],
+                [
+                    {
+                        "stringValue": "2021-07-02"
+                    },
+                    {
+                        "isNull": true
+                    },
+                    {
+                        "stringValue": "2021-07-02 10:00:00+00"
+                    },
+                    {
+                        "isNull": true
+                    },
+                    {
+                        "stringValue": "10:00:00+00"
+                    }
+                ],
+                [
+                    {
+                        "isNull": true
+                    },
+                    {
+                        "stringValue": "2021-07-03 10:00:00"
+                    },
+                    {
+                        "stringValue": "2021-07-03 10:00:00+00"
+                    },
+                    {
+                        "isNull": true
+                    },
+                    {
+                        "stringValue": "10:00:00+00"
+                    }
+                ]
+            ],
+            "TotalNumRows": 3,
+            "ResponseMetadata": {
+                "RequestId": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                "HTTPStatusCode": 200,
+                "HTTPHeaders": {
+                    "x-amzn-requestid": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                    "content-type": "application/x-amz-json-1.1",
+                    "content-length": "1526",
+                    "date": "Tue, 22 Jun 2021 21:30:34 GMT"
+                },
+                "RetryAttempts": 0
+            }
+        }
+    }
+}

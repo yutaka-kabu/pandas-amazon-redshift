@@ -1,0 +1,50 @@
+{
+    "Tables": [
+        {
+            "name": "booltbl",
+            "schema": "public",
+            "type": "TABLE"
+        },
+        {
+            "name": "datetbl",
+            "schema": "public",
+            "type": "TABLE"
+        },
+        {
+            "name": "existing_tbl",
+            "schema": "public",
+            "type": "TABLE"
+        },
+        {
+            "name": "floattbl",
+            "schema": "public",
+            "type": "TABLE"
+        },
+        {
+            "name": "inttbl",
+            "schema": "public",
+            "type": "TABLE"
+        },
+        {
+            "name": "misctbl",
+            "schema": "public",
+            "type": "TABLE"
+        },
+        {
+            "name": "texttbl",
+            "schema": "public",
+            "type": "TABLE"
+        }
+    ],
+    "ResponseMetadata": {
+        "RequestId": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY4",
+        "HTTPStatusCode": 200,
+        "HTTPHeaders": {
+            "x-amzn-requestid": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY4",
+            "content-type": "application/x-amz-json-1.1",
+            "content-length": "381",
+            "date": "Wed, 30 Jun 2021 09:19:31 GMT"
+        },
+        "RetryAttempts": 0
+    }
+}

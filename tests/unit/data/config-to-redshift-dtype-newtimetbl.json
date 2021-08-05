@@ -1,0 +1,33 @@
+{
+    "InputDf": {
+        "Data": {
+            "col1": [ "1:00am", "2:00pm" ],
+            "col2": [ null, "14:00" ],
+            "col3": [ "16:00:00-0900", null ],
+            "col4": [ null, "23:00+0900" ]
+        },
+        "Transformation": [
+            {
+                "FunctionName": "to_datetime",
+                "Columns": [ "col1", "col3", "col4" ]
+            },
+            {
+                "FunctionName": "to_time",
+                "Columns": [ "col1" ]
+            },
+            {
+                "FunctionName": "to_timetz",
+                "Columns": [ "col4" ]
+            }
+        ]
+    },
+    "ToRedshiftDtype": {
+        "col1": "TIME",
+        "col2": "time without time zone",
+        "col3": "TIMETZ",
+        "col4": "time with time zone"
+    },
+    "TableName": "newtimetbl",
+    "ExpectedCreateTblSql": "CREATE TABLE \"public\".\"newtimetbl\" (\"col1\" TIME,\"col2\" TIME,\"col3\" TIMETZ,\"col4\" TIMETZ);",
+    "ExpectedInsertSql": "INSERT INTO \"public\".\"newtimetbl\" (\"col1\",\"col2\",\"col3\",\"col4\") VALUES ('01:00:00',NULL,'01:00:00+0000',NULL),('14:00:00','14:00:00',NULL,'14:00:00+0000');"
+}

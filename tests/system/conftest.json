@@ -1,0 +1,220 @@
+{
+    "Redshift": {
+        "ClusterIdentifier": "redshift-cluster-1",
+        "BaseDatabase": "dev",
+        "SecretArn": "TestSecret",
+        "TestDatabase": "system_test"
+    },
+    "SampleData": {
+        "Dir": "data",
+        "Url": "https://docs.aws.amazon.com/redshift/latest/gsg/samples/tickitdb.zip",
+        "Tables": {
+            "users": {
+                "File": "allusers_pipe.txt",
+                "AdditionalParams": {
+                    "sep": "|",
+                    "header": null
+                },
+                "Dtype": [
+                    [ "userid", "integer" ],
+                    [ "username", "char(8)" ],
+                    [ "firstname", "varchar(30)" ],
+                    [ "lastname", "varchar(30)" ],
+                    [ "city", "varchar(30)" ],
+                    [ "state",  "char(2)" ],
+                    [ "email", "varchar(100)" ],
+                    [ "phone", "char(14)" ],
+                    [ "likesports", "boolean" ],
+                    [ "liketheatre", "boolean" ],
+                    [ "likeconcerts", "boolean" ],
+                    [ "likejazz", "boolean" ],
+                    [ "likeclassical", "boolean" ],
+                    [ "likeopera", "boolean" ],
+                    [ "likerock", "boolean" ],
+                    [ "likevegas", "boolean" ],
+                    [ "likebroadway", "boolean" ],
+                    [ "likemusicals", "boolean" ]
+                ]
+            },
+            "date": {
+                "File": "date2008_pipe.txt",
+                "AdditionalParams": {
+                    "sep": "|",
+                    "parse_dates": [ "caldate" ],
+                    "header": null
+                },
+                "Dtype": [
+                    [ "dateid", "smallint" ],
+                    [ "caldate", "date" ],
+                    [ "day", "character(3)" ],
+                    [ "weekly", "smallint" ],
+                    [ "month", "character(5)" ],
+                    [ "qtr", "character(5)" ],
+                    [ "year", "smallint" ],
+                    [ "holiday", "boolean" ]
+                ]
+            },
+            "event": {
+                "File": "allevents_pipe.txt",
+                "AdditionalParams": {
+                    "sep": "|",
+                    "parse_dates": [ "starttime" ],
+                    "header": null
+                },
+                "Dtype": [
+                    [ "eventid", "integer" ],
+                    [ "venueid", "smallint" ],
+                    [ "catid", "smallint" ],
+                    [ "dateid", "smallint" ],
+                    [ "eventname", "varchar(200)" ],
+                    [ "starttime", "timestamp" ]
+                ]
+            },
+            "sales": {
+                "File": "sales_tab.txt",
+                "AdditionalParams": {
+                    "sep": "\t",
+                    "parse_dates": [ "saletime" ],
+                    "header": null
+                },
+                "Dtype": [
+                    [ "salesid", "integer" ],
+                    [ "listid", "integer" ],
+                    [ "sellerid", "integer" ],
+                    [ "buyerid", "integer" ],
+                    [ "eventid", "integer" ],
+                    [ "dateid", "smallint" ],
+                    [ "qtysold", "smallint" ],
+                    [ "pricepaid", "decimal(8,2)" ],
+                    [ "commission", "decimal(8,2)" ],
+                    [ "saletime", "timestamp" ]
+                ]
+            }
+        },
+        "Queries": [
+            {
+                "Sql": "SELECT sum(qtysold) FROM sales, date WHERE sales.dateid = date.dateid AND caldate = '2008-01-05'",
+                "ExpectedDf": {
+                    "Data": {
+                        "sum": [ 210 ]
+                    }
+                }
+            },
+            {
+                "Sql": "SELECT firstname, lastname, total_quantity FROM (SELECT buyerid, sum(qtysold) total_quantity FROM sales GROUP BY buyerid ORDER BY total_quantity desc) Q, users WHERE Q.buyerid = userid ORDER BY Q.total_quantity desc, buyerid limit 10",
+                "ExpectedDf": {
+                    "Data": {
+                        "firstname": [
+                            "Jerry",
+                            "Kameko",
+                            "Armando",
+                            "Kellie",
+                            "Rhona",
+                            "Belle",
+                            "Penelope",
+                            "Herrod",
+                            "Kadeem",
+                            "Deborah"
+                        ],
+                        "lastname": [
+                            "Nichols",
+                            "Bowman",
+                            "Lopez",
+                            "Savage",
+                            "Sweet",
+                            "Foreman",
+                            "Merritt",
+                            "Sparks",
+                            "Blair",
+                            "Barber"
+                        ],
+                        "total_quantity": [
+                            67,
+                            64,
+                            64,
+                            63,
+                            60,
+                            60,
+                            60,
+                            60,
+                            60,
+                            60
+                        ]
+                    }
+                }
+            },
+            {
+                "Sql": "SELECT eventname, total_price FROM (SELECT eventid, total_price, ntile(1000) over(order by total_price desc) as percentile FROM (SELECT eventid, sum(pricepaid) total_price FROM sales GROUP BY eventid)) Q, event E WHERE Q.eventid = E.eventid AND percentile = 1 ORDER BY total_price desc",
+                "ExpectedDf": {
+                    "Data": {
+                        "eventname": [
+                            "Adriana Lecouvreur",
+                            "Janet Jackson",
+                            "Phantom of the Opera",
+                            "The Little Mermaid",
+                            "Citizen Cope",
+                            "Sevendust",
+                            "Electra",
+                            "Mary Poppins",
+                            "Live"
+                        ],
+                        "total_price": [
+                            51846.00,
+                            51049.00,
+                            50301.00,
+                            49956.00,
+                            49823.00,
+                            48020.00,
+                            47883.00,
+                            46780.00,
+                            46661.00
+                        ]
+                    },
+                    "Transformation": [
+                        {
+                            "FunctionName": "to_numeric",
+                            "Columns": [ "total_price" ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "EmptyData": {
+        "InputDf": {
+            "Data": {
+                "id": [],
+                "name": []
+            },
+            "Transformation": [
+                {
+                    "FunctionName": "cast_col",
+                    "Arguments": {
+                        "id": { "dtype": "int32" },
+                        "name": {"dtype": "object" }
+                    }
+                },
+                {
+                    "FunctionName": "drop_index",
+                    "Type": "DataFrame"
+                }
+            ]
+        },
+        "OutputDf": {
+            "Transformation": [
+                {
+                    "FunctionName": "drop_index",
+                    "Type": "DataFrame"
+                }
+            ]
+        },
+        "Sql": "SELECT * FROM table_with_0_rows",
+        "WriterArguments": {
+            "table": "table_with_0_rows",
+            "dtype": {
+                "id": "integer",
+                "name": "varchar(60)"
+            }
+        }
+    }
+}

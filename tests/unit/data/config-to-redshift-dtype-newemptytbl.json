@@ -1,0 +1,20 @@
+{
+    "InputDf": {
+        "Data": {
+            "id": [],
+            "name": []
+        },
+        "Transformation": [
+            {
+                "FunctionName": "drop_index",
+                "Type": "DataFrame"
+            }
+        ]
+    },
+    "ToRedshiftDtype": {
+        "id": "INTEGER",
+        "name": "VARCHAR(60)"
+    },
+    "TableName": "newemptytbl",
+    "ExpectedCreateTblSql": "CREATE TABLE \"public\".\"newemptytbl\" (\"id\" INTEGER,\"name\" VARCHAR(60));"
+}

@@ -1,0 +1,81 @@
+{
+    "ExpectedDf": {
+        "Data": {
+            "super1": [ { "id": 1, "name": "Alice" }, { "id": 2, "name": "Bob" }, null ],
+            "super2": [ [ 1, 2, 3 ], 1.2, "{\"id\": 3, \"name\": \"Carol\"}" ]
+        }
+    },    
+    "Sql": "SELECT * FROM supertbl",
+    "GetStatementResultResponse" : {
+        "default": {
+            "ColumnMetadata": [
+                {
+                    "isCaseSensitive": true,
+                    "isCurrency": false,
+                    "isSigned": false,
+                    "label": "super1",
+                    "length": 0,
+                    "name": "super1",
+                    "nullable": 1,
+                    "precision": 1048466,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "supertbl",
+                    "typeName": "super"
+                },
+                {
+                    "isCaseSensitive": true,
+                    "isCurrency": false,
+                    "isSigned": false,
+                    "label": "super2",
+                    "length": 0,
+                    "name": "super2",
+                    "nullable": 1,
+                    "precision": 1048466,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "supertbl",
+                    "typeName": "super"
+                }
+            ],
+            "Records": [
+                [
+                    {
+                        "stringValue": "{\"id\":1,\"name\":\"Alice\"}"
+                    },
+                    {
+                        "stringValue": "[1,2,3]"
+                    }
+                ],
+                [
+                    {
+                        "stringValue": "{\"id\":2,\"name\":\"Bob\"}"
+                    },
+                    {
+                        "stringValue": "1.2"
+                    }
+                ],
+                [
+                    {
+                        "isNull": true
+                    },
+                    {
+                        "stringValue": "\"{\\\"id\\\": 3, \\\"name\\\": \\\"Carol\\\"}\""
+                    }
+                ]
+            ],
+            "TotalNumRows": 3,
+            "ResponseMetadata": {
+                "RequestId": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                "HTTPStatusCode": 200,
+                "HTTPHeaders": {
+                    "x-amzn-requestid": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                    "content-type": "application/x-amz-json-1.1",
+                    "content-length": "704",
+                    "date": "Tue, 22 Jun 2021 21:30:34 GMT"
+                },
+                "RetryAttempts": 0
+            }
+        }
+    }
+}

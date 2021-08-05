@@ -1,0 +1,90 @@
+{
+    "ExpectedDf": {
+        "Data": {
+            "bool1": [ true, false, false ],
+            "bool2": [ null, true, false ]
+        },
+        "Transformation": [
+            {
+                "FunctionName": "cast_col",
+                "Arguments": {
+                    "bool1": { "dtype": "bool" },
+                    "bool2": { "dtype": "boolean" }
+                }
+            }
+        ]
+    },
+    "Sql": "SELECT * FROM booltbl",
+    "GetStatementResultResponse" : {
+        "default": {
+            "ColumnMetadata": [
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": false,
+                    "label": "bool1",
+                    "length": 0,
+                    "name": "bool1",
+                    "nullable": 0,
+                    "precision": 1,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "booltbl",
+                    "typeName": "bool"
+                },
+                {
+                    "isCaseSensitive": false,
+                    "isCurrency": false,
+                    "isSigned": false,
+                    "label": "bool2",
+                    "length": 0,
+                    "name": "bool2",
+                    "nullable": 1,
+                    "precision": 1,
+                    "scale": 0,
+                    "schemaName": "public",
+                    "tableName": "booltbl",
+                    "typeName": "bool"
+                }
+            ],
+            "Records": [
+                [
+                    {
+                        "stringValue": "true"
+                    },
+                    {
+                        "isNull": true
+                    }
+                ],
+                [
+                    {
+                        "stringValue": "false"
+                    },
+                    {
+                        "stringValue": "true"
+                    }
+                ],
+                [
+                    {
+                        "stringValue": "false"
+                    },
+                    {
+                        "stringValue": "false"
+                    }
+                ]
+            ],
+            "TotalNumRows": 3,
+            "ResponseMetadata": {
+                "RequestId": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                "HTTPStatusCode": 200,
+                "HTTPHeaders": {
+                    "x-amzn-requestid": "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYY3",
+                    "content-type": "application/x-amz-json-1.1",
+                    "content-length": "595",
+                    "date": "Tue, 22 Jun 2021 21:30:34 GMT"
+                },
+                "RetryAttempts": 0
+            }
+        }
+    }
+}

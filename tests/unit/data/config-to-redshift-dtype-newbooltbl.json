@@ -1,0 +1,24 @@
+{
+    "InputDf": {
+        "Data": {
+            "col1": [ true, false ],
+            "col2": [ false, null ]
+        },
+        "Transformation": [
+            {
+                "FunctionName": "cast_col",
+                "Arguments": {
+                    "col1": { "dtype": "bool" },
+                    "col2": { "dtype": "boolean" }
+                }
+            }
+        ]
+    },
+    "ToRedshiftDtype": {
+        "col1": "BooL",
+        "col2": "bOOlEan"
+    },
+    "TableName": "newbooltbl",
+    "ExpectedCreateTblSql": "CREATE TABLE \"public\".\"newbooltbl\" (\"col1\" BOOLEAN,\"col2\" BOOLEAN);",
+    "ExpectedInsertSql": "INSERT INTO \"public\".\"newbooltbl\" (\"col1\",\"col2\") VALUES (True,False),(False,NULL);"
+}

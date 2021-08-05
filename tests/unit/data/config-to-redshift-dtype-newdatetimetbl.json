@@ -1,0 +1,27 @@
+{
+    "InputDf": {
+        "Data": {
+            "col1": [ "20210701", null ],
+            "col2": [ null, "6/30/2021 12:00:00" ],
+            "col3": [ "2021/7/1 13:00:00", null ],
+            "col4": [ "2021-07-01 22:00:00+0900", "2021-06-30 07:00:00-0700" ],
+            "col5": [ null, "30/6/2021 14:00" ]
+        },
+        "Transformation": [
+            {
+                "FunctionName": "to_datetime",
+                "Columns": [ "col1", "col4" ]
+            }
+        ]
+    },
+    "ToRedshiftDtype": {
+        "col1": "DATE",
+        "col2": "timestamp",
+        "col3": "TIMESTAMP WITHOUT TIME ZONE",
+        "col4": "TIMESTAMPTZ",
+        "col5": "timestamp with time zone"
+    },
+    "TableName": "newdatetimetbl",
+    "ExpectedCreateTblSql": "CREATE TABLE \"public\".\"newdatetimetbl\" (\"col1\" DATE,\"col2\" TIMESTAMP,\"col3\" TIMESTAMP,\"col4\" TIMESTAMPTZ,\"col5\" TIMESTAMPTZ);",
+    "ExpectedInsertSql": "INSERT INTO \"public\".\"newdatetimetbl\" (\"col1\",\"col2\",\"col3\",\"col4\",\"col5\") VALUES ('2021-07-01',NULL,'2021-07-01 13:00:00','2021-07-01 13:00:00+0000',NULL),(NULL,'2021-06-30 12:00:00',NULL,'2021-06-30 14:00:00+0000','2021-06-30 14:00:00+0000');"
+}
