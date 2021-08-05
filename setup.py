@@ -32,7 +32,7 @@ setup(
     license="BSD License",
     author="Yutaka Kabutoya",
     author_email="y.kabutoya@gmail.com",
-    url="https://github.com/yutaka-kabu/pandas-redshift",
+    url="https://github.com/yutaka-kabu/pandas-amazon-redshift",
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Environment :: Console",
