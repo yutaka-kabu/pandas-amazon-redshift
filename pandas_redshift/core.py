@@ -25,7 +25,6 @@ from .errors import (
 )
 
 logger = logging.getLogger(__name__)
-client = boto3.client("redshift-data")
 
 
 def to_redshift(
@@ -155,11 +154,16 @@ def read_redshift(
 
 
 class RedshiftConnector(object):
+    client = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls.client:
+            cls.client = boto3.client("redshift-data")
+        return super(RedshiftConnector, cls).__new__(cls)
+
     def __init__(
         self, cluster_identifier, database, db_user=None, secret_arn=None
     ):
-        global client
-
         self.cluster_identifier = cluster_identifier
         self.db_user = db_user
         self.database = database
@@ -193,7 +197,7 @@ class RedshiftConnector(object):
         else:
             execute_statement_params["DbUser"] = self.db_user
 
-        result = client.execute_statement(**execute_statement_params)
+        result = self.client.execute_statement(**execute_statement_params)
         statement_id = result["Id"]
 
         logger.debug(
@@ -209,7 +213,7 @@ class RedshiftConnector(object):
 
             status, description = "", {}
             while status not in {"FINISHED", "FAILED", "ABORTED"}:
-                description = client.describe_statement(Id=statement_id)
+                description = self.client.describe_statement(Id=statement_id)
                 status = description["Status"]
                 sleep(1.0)
 
@@ -263,7 +267,7 @@ class RedshiftConnector(object):
         redshift_types = OrderedDict()
         data = []
         while self._has_next_token(get_statement_result_params):
-            statement_result = client.get_statement_result(
+            statement_result = self.client.get_statement_result(
                 **get_statement_result_params
             )
 
@@ -482,7 +486,7 @@ class RedshiftConnector(object):
 
         table_map = set()
         while self._has_next_token(list_tables_params):
-            list_tables_result = client.list_tables(**list_tables_params)
+            list_tables_result = self.client.list_tables(**list_tables_params)
             for table_info in list_tables_result["Tables"]:
                 table_map.add(table_info["name"])
             list_tables_params["NextToken"] = list_tables_result.get(
