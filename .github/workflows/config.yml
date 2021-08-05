@@ -12,6 +12,17 @@ jobs:
       - name: lint
         run: nox -s lint
 
+  docs:
+    name: docs-presubmit
+    runs-on: ubuntu-latest
+    container:
+      image: thekevjames/nox
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: docs
+        run: nox -s docs
+
   pip37:
     name: pip-3.7
     runs-on: ubuntu-latest
@@ -20,6 +31,27 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - name: lint
-        run: nox -s unit-3.7    
-  
+      - name: unittest
+        run: nox -s unit-3.7 cover
+
+  pip38:
+    name: pip-3.8
+    runs-on: ubuntu-latest
+    container:
+      image: thekevjames/nox
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: unittest
+        run: nox -s unit-3.8 cover
+
+  pip39:
+    name: pip-3.9
+    runs-on: ubuntu-latest
+    container:
+      image: thekevjames/nox
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: unittest
+        run: nox -s unit-3.9 cover
