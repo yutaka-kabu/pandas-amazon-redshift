@@ -4,6 +4,7 @@ exclude = '''
 versioneer.py
 | _version.py
 | docs
+| .eggs
 | .nox
 | tmp
 '''
