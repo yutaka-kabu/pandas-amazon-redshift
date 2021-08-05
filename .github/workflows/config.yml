@@ -1,0 +1,25 @@
+on: [push, pull_request]
+
+jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    container:
+      image: thekevjames/nox
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: lint
+        run: nox -s lint
+
+  pip-3.7:
+    name: pip-3.7
+    runs-on: ubuntu-latest
+    container:
+      image: thekevjames/nox
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: lint
+        run: nox -s unit-3.7    
+  
