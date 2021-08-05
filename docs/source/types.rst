@@ -1,4 +1,4 @@
-.. currentmodule:: pandas_redshift
+.. currentmodule:: pandas_amazon_redshift
 .. _api.types:
 
 *************
@@ -7,9 +7,10 @@ RedshiftTypes
 
 .. note::
 
-  Only functions and classes which are members of the ``pandas_redshift``
-  and ``pandas_redshift.errors`` module are considered public.
-  Submodules and their members are considered private.
+  Only functions and classes which are members of the
+  ``pandas_amazon_redshift`` and ``pandas_amazon_redshift.errors``
+  module are considered public. Submodules and their members
+  are considered private.
 
 .. autosummary::
 

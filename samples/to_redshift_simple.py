@@ -17,9 +17,9 @@ def main(
     table,
     secret_arn,
 ):
-    # [START pandas_redshift_to_redshift_simple]
+    # [START pandas_amazon_redshift_to_redshift_simple]
     import pandas
-    import pandas_redshift
+    import pandas_amazon_redshift
 
     # TODO: Set cluster_identifier to specify your Redshift cluster.
     # cluster_identifier = "my-cluster"
@@ -56,10 +56,10 @@ def main(
         "my_dates": "DATE",
     }
 
-    pandas_redshift.to_redshift(
+    pandas_amazon_redshift.to_redshift(
         df, cluster_identifier, database, table, dtype, secret_arn=secret_arn
     )
-    # [END pandas_redshift_to_redshift_simple]
+    # [END pandas_amazon_redshift_to_redshift_simple]
 
 
 if __name__ == "__main__":

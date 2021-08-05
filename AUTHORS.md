@@ -24,6 +24,6 @@ Other licenses can be found in the LICENSE file.
 License
 =======
 
-pandas-redshift is distributed under a 3-clause ("Simplified" or "New")
+pandas-amazon-redshift is distributed under a 3-clause ("Simplified" or "New")
 BSD license. Parts of pandas, NumPy, numpydoc, which all have
 BSD-compatible licenses, are included. 

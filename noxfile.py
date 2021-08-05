@@ -22,7 +22,7 @@ BLACK_PACKAGE = "black==20.8b1"
 @nox.session(python=LATEST_PYTHON)
 def lint(session):
     session.install(BLACK_PACKAGE, "flake8")
-    session.run("flake8", "pandas_redshift")
+    session.run("flake8", "pandas_amazon_redshift")
     session.run("flake8", "boto3_mock")
     session.run("flake8", "tests")
     session.run("flake8", "samples")
@@ -50,7 +50,7 @@ def unit(session):
         "pytest",
         os.path.join(".", "tests", "unit"),
         "-v",
-        "--cov=pandas_redshift",
+        "--cov=pandas_amazon_redshift",
         "--cov=boto3_mock",
         "--cov=tests.unit",
         "--cov-report",
@@ -93,10 +93,6 @@ def system(session):
     session.install(
         "-e",
         ".",
-        # Use dependencies versions from constraints file. This enables testing
-        # across a more full range of versions of the dependencies.
-        "-c",
-        os.path.join(".", "ci", "constraints-{}.pip".format(session.python)),
     )
 
     additional_args = list(session.posargs)

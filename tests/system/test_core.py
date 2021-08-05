@@ -4,7 +4,7 @@ import os.path
 
 import pandas
 
-import pandas_redshift
+import pandas_amazon_redshift
 
 from tests.utils.df_handler import transform_df
 
@@ -14,7 +14,7 @@ def writer_under_test(config):
     redshift_config = config["Redshift"]
 
     return functools.partial(
-        pandas_redshift.to_redshift,
+        pandas_amazon_redshift.to_redshift,
         cluster_identifier=redshift_config["ClusterIdentifier"],
         database=redshift_config["TestDatabase"],
         secret_arn=redshift_config["SecretArn"],
@@ -26,7 +26,7 @@ def reader_under_test(config):
     redshift_config = config["Redshift"]
 
     return functools.partial(
-        pandas_redshift.read_redshift,
+        pandas_amazon_redshift.read_redshift,
         cluster_identifier=redshift_config["ClusterIdentifier"],
         database=redshift_config["TestDatabase"],
         secret_arn=redshift_config["SecretArn"],

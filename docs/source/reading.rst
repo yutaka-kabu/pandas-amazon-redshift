@@ -1,14 +1,14 @@
 Reading Tables
 ==============
 
-Use the :func:`pandas_redshift.read_redshift` function to run a query to
+Use the :func:`pandas_amazon_redshift.read_redshift` function to run a query to
 Redshift and download the results as a :class:`pandas.DataFrame` object.
 
 .. literalinclude:: ../../samples/read_redshift_simple.py
    :language: python
    :dedent: 4
-   :start-after: [START pandas_redshift_read_redshift_simple]
-   :end-before: [END pandas_redshift_read_redshift_simple]
+   :start-after: [START pandas_amazon_redshift_read_redshift_simple]
+   :end-before: [END pandas_amazon_redshift_read_redshift_simple]
 
 .. note::
 

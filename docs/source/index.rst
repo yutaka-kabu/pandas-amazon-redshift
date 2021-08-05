@@ -1,16 +1,17 @@
-.. pandas-redshift documentation master file, created by
+.. pandas-amazon-redshift documentation master file, created by
    sphinx-quickstart on Wed Jul 28 08:31:44 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to pandas-redshift's documentation!
-===========================================
+Welcome to pandas-amazon-redshift's documentation!
+==================================================
 
-The :mod:`pandas_redshift` module provides a wrapper for Amazon Redshift
-analytics web service to simplify retrieving results from Redshift tables
-using SQL. Result sets are parsed into a :class:`pandas.DataFrame`
-with a shape and data types derived from the source table. Additionally,
-DataFrames can be inserted into new Redshift tables.
+The :mod:`pandas_amazon_redshift` module provides a wrapper for
+Amazon Redshift analytics web service to simplify retrieving results
+from Redshift tables using SQL. Result sets are parsed into a
+:class:`pandas.DataFrame` with a shape and data types derived from
+the source table. Additionally, DataFrames can be inserted into
+new Redshift tables.
 
 .. note::
 

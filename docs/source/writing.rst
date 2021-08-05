@@ -1,55 +1,55 @@
 Writing Tables
 ==============
 
-Use the :func:`pandas_redshift.to_redshift` function to write a
+Use the :func:`pandas_amazon_redshift.to_redshift` function to write a
 :class:`pandas.DataFrame` object to a table in Redshift.
 
 .. literalinclude:: ../../samples/to_redshift_simple.py
    :language: python
    :dedent: 4
-   :start-after: [START pandas_redshift_to_redshift_simple]
-   :end-before: [END pandas_redshift_to_redshift_simple]
+   :start-after: [START pandas_amazon_redshift_to_redshift_simple]
+   :end-before: [END pandas_amazon_redshift_to_redshift_simple]
 
 The destination table will automatically be created.
 
 Designating the Table Schema
 ============================
 
-In the :func:`pandas_redshift.to_redshift` function,
+In the :func:`pandas_amazon_redshift.to_redshift` function,
 ``dtype`` is required to specify the table schema since
 table schema inference has not been implemented.
 
-For the argument ``dtype``, ``str``, :class:`pandas_redshift.RedshiftType`,
+For the argument ``dtype``, ``str``, :class:`pandas_amazon_redshift.RedshiftType`,
 or ``dict`` is allowed. Basically ``dict`` is used for ``dtype``. Column
 names are set for keys, and data type represented in ``str`` or
-:class:`pandas_redshift.RedshiftType` are set for values in the ``dict``.
-Where ``str`` or :class:`pandas_redshift.RedshiftType` is set as ``dtype``,
+:class:`pandas_amazon_redshift.RedshiftType` are set for values in the ``dict``.
+Where ``str`` or :class:`pandas_amazon_redshift.RedshiftType` is set as ``dtype``,
 all columns will be parsed as the designatated value in ``dtype``.
 
 You can use the following types for the argument ``dtype``.
 Note that the ``str`` representation is case insensitive.
 
 ========================================== ====================================================
-``str`` representation                     :class:`pandas_redshift.RedshiftType` representation
+``str`` representation                     :class:`pandas_amazon_redshift.RedshiftType` representation
 ========================================== ====================================================
-'SMALLINT', 'INT2'                         :class:`pandas_redshift.SmallInt`
-'INTEGER', 'INT', 'INT4'                   :class:`pandas_redshift.Integer`
-'BIGINT', 'INT8'                           :class:`pandas_redshift.BigInt`
-'DECIMAL', 'NUMERIC'                       :class:`pandas_redshift.Numeric`
-'REAL', 'FLOAT4'                           :class:`pandas_redshift.Real`
-'DOUBLE PRECISION', 'FLOAT8', 'FLOAT'      :class:`pandas_redshift.DoublePrecision`
-'BOOLEAN', 'BOOL'                          :class:`pandas_redshift.Boolean`
-'CHAR', 'CHARACTER', 'NCHAR'               :class:`pandas_redshift.Char`
-'BPCHAR'                                   :class:`pandas_redshift.BPChar`
-'VARCHAR', 'CHARACTER VARYING', 'NVARCHAR' :class:`pandas_redshift.VarChar`
-'TEXT'                                     :class:`pandas_redshift.Text`
-'DATE'                                     :class:`pandas_redshift.Date`
-'TIMESTAMP', 'TIMESTAMP WITHOUT TIME ZONE' :class:`pandas_redshift.TimeStamp`
-'TIMESTAMPTZ', 'TIMESTAMP WITH TIME ZONE'  :class:`pandas_redshift.TimeStampTz`
-'GEOMETRY'                                 :class:`pandas_redshift.Geometry`
-'TIME', 'TIME WITHOUT TIME ZONE'           :class:`pandas_redshift.Time`
-'TIMETZ', 'TIME WITH TIME ZONE'            :class:`pandas_redshift.TimeTz`
-'SUPER'                                    :class:`pandas_redshift.Super`
+'SMALLINT', 'INT2'                         :class:`pandas_amazon_redshift.SmallInt`
+'INTEGER', 'INT', 'INT4'                   :class:`pandas_amazon_redshift.Integer`
+'BIGINT', 'INT8'                           :class:`pandas_amazon_redshift.BigInt`
+'DECIMAL', 'NUMERIC'                       :class:`pandas_amazon_redshift.Numeric`
+'REAL', 'FLOAT4'                           :class:`pandas_amazon_redshift.Real`
+'DOUBLE PRECISION', 'FLOAT8', 'FLOAT'      :class:`pandas_amazon_redshift.DoublePrecision`
+'BOOLEAN', 'BOOL'                          :class:`pandas_amazon_redshift.Boolean`
+'CHAR', 'CHARACTER', 'NCHAR'               :class:`pandas_amazon_redshift.Char`
+'BPCHAR'                                   :class:`pandas_amazon_redshift.BPChar`
+'VARCHAR', 'CHARACTER VARYING', 'NVARCHAR' :class:`pandas_amazon_redshift.VarChar`
+'TEXT'                                     :class:`pandas_amazon_redshift.Text`
+'DATE'                                     :class:`pandas_amazon_redshift.Date`
+'TIMESTAMP', 'TIMESTAMP WITHOUT TIME ZONE' :class:`pandas_amazon_redshift.TimeStamp`
+'TIMESTAMPTZ', 'TIMESTAMP WITH TIME ZONE'  :class:`pandas_amazon_redshift.TimeStampTz`
+'GEOMETRY'                                 :class:`pandas_amazon_redshift.Geometry`
+'TIME', 'TIME WITHOUT TIME ZONE'           :class:`pandas_amazon_redshift.Time`
+'TIMETZ', 'TIME WITH TIME ZONE'            :class:`pandas_amazon_redshift.TimeTz`
+'SUPER'                                    :class:`pandas_amazon_redshift.Super`
 ========================================== ====================================================
 
 Writing to an Existing Table
@@ -63,7 +63,7 @@ Overview for Flow to Write a Table
 ==================================
 
 The flow to write a table to Redshift cluster with
-:func:`pandas_redshift.to_redshift` is summarized as follows:
+:func:`pandas_amazon_redshift.to_redshift` is summarized as follows:
 
 1. Encode data to Redshift notations (type : ``str``) with checking data
 2. Create table
@@ -73,11 +73,11 @@ In case data checking is failed mainly due to inappropriate data type,
 ``DataEncodeError`` is raised, the process is stopped, and the writer
 neither create table nor write data.
 
-:func:`pandas_redshift.to_redshift` writes data (step 3.) after confirming
+:func:`pandas_amazon_redshift.to_redshift` writes data (step 3.) after confirming
 finish of the statement to ``CREATE TABLE`` (step 2.). In writing data, multiple
 statements for ``INSERT`` is executed in parallel. Note that you might encounter
 unexpected results if you manipulate data or metadata for the created table
-during writing data with :func:`pandas_redshift.to_redshift`, because each
+during writing data with :func:`pandas_amazon_redshift.to_redshift`, because each
 statement in ``CREATE TABLE`` and ``INSERT`` sqls are executed in a different
 transaction.
 
@@ -88,7 +88,7 @@ Data Type Checking
 ------------------
 
 Data type is checked from the viewpoint of 1/ unexpected string, which cannot
-be associate with :class:`pandas_redshift.RedshiftType`, and 2/ invalid
+be associate with :class:`pandas_amazon_redshift.RedshiftType`, and 2/ invalid
 arguments, e.g. >4,096 length for ``CHAR``.
 
 Metadata Checking

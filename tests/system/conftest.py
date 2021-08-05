@@ -51,7 +51,7 @@ def run_query(conn, sql):
 
 @pytest.fixture(scope="class")
 def prepare_database(config):
-    from pandas_redshift.core import RedshiftConnector
+    from pandas_amazon_redshift.core import RedshiftConnector
 
     redshift_config = config["Redshift"]
 

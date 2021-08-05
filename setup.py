@@ -4,7 +4,7 @@
 import versioneer
 from setuptools import find_packages, setup
 
-NAME = "pandas-redshift"
+NAME = "pandas-amazon-redshift"
 
 
 # versioning

@@ -85,7 +85,7 @@ def set_describe_statement_mock(client, info_for_statements, **response_diff):
 def test_to_redshift_w_no_secret_arn_and_no_db_user_should_fail(
     writer_under_test,
 ):
-    from pandas_redshift.errors import InvalidAuthentication
+    from pandas_amazon_redshift.errors import InvalidAuthentication
 
     with pytest.raises(InvalidAuthentication):
         writer_under_test(
@@ -98,7 +98,7 @@ def test_to_redshift_w_no_secret_arn_and_no_db_user_should_fail(
 def test_read_redshift_w_no_secret_arn_and_no_db_user_should_fail(
     reader_under_test,
 ):
-    from pandas_redshift.errors import InvalidAuthentication
+    from pandas_amazon_redshift.errors import InvalidAuthentication
 
     with pytest.raises(InvalidAuthentication):
         reader_under_test("SELECT 1")
@@ -193,8 +193,8 @@ def test_read_redshift_fail(
     error_cls,
     error_msg,
 ):
-    from pandas_redshift.errors import QueryFailedError  # noqa
-    from pandas_redshift.errors import QueryAbortedError  # noqa
+    from pandas_amazon_redshift.errors import QueryFailedError  # noqa
+    from pandas_amazon_redshift.errors import QueryAbortedError  # noqa
 
     client = mock_boto3_client("redshift-data")
 
@@ -232,7 +232,7 @@ def mock_for_writer(mock_boto3_client):
 
 
 def test_to_redshift_if_exists_fail(writer_under_test, mock_for_writer):
-    from pandas_redshift.errors import TableCreationError
+    from pandas_amazon_redshift.errors import TableCreationError
 
     expected_error_msg = (
         "Could not create the table "
@@ -254,7 +254,7 @@ def test_to_redshift_success(
     cluster_identifier,
     database,
 ):
-    from pandas_redshift.types import Integer
+    from pandas_amazon_redshift.types import Integer
 
     writer_under_test(
         pandas.DataFrame([[1, 1]]),
@@ -512,10 +512,10 @@ def test_to_redshift_data_fail(
     error_cls,
     error_msg,
 ):
-    from pandas_redshift.errors import DataEncodeError  # noqa
-    from pandas_redshift.errors import InvalidRedshiftType  # noqa
-    from pandas_redshift.errors import MetadataEncodeError  # noqa
-    from pandas_redshift.errors import NoColumnError  # noqa
+    from pandas_amazon_redshift.errors import DataEncodeError  # noqa
+    from pandas_amazon_redshift.errors import InvalidRedshiftType  # noqa
+    from pandas_amazon_redshift.errors import MetadataEncodeError  # noqa
+    from pandas_amazon_redshift.errors import NoColumnError  # noqa
 
     with pytest.raises(locals()[error_cls], match=error_msg):
         writer_under_test(
@@ -528,7 +528,7 @@ def test_to_redshift_data_fail(
 
 
 def test_to_redshift_load_chunks(writer_under_test, mock_boto3_client):
-    from pandas_redshift.core import RedshiftConnector
+    from pandas_amazon_redshift.core import RedshiftConnector
 
     client = mock_boto3_client("redshift-data")
 

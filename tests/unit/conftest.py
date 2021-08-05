@@ -25,10 +25,10 @@ def database():
 
 @pytest.fixture()
 def reader_under_test(cluster_identifier, database):
-    import pandas_redshift
+    import pandas_amazon_redshift
 
     return functools.partial(
-        pandas_redshift.read_redshift,
+        pandas_amazon_redshift.read_redshift,
         cluster_identifier=cluster_identifier,
         database=database,
     )
@@ -36,10 +36,10 @@ def reader_under_test(cluster_identifier, database):
 
 @pytest.fixture()
 def writer_under_test(cluster_identifier, database):
-    import pandas_redshift
+    import pandas_amazon_redshift
 
     return functools.partial(
-        pandas_redshift.to_redshift,
+        pandas_amazon_redshift.to_redshift,
         cluster_identifier=cluster_identifier,
         database=database,
     )

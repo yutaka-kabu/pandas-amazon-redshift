@@ -4,7 +4,7 @@ include AUTHORS.md
 include LICENSE.txt
 include setup.py
 
-graft pandas_redshift
+graft pandas_amazon_redshift
 
 global-exclude *.so
 global-exclude *.pyd
@@ -16,4 +16,4 @@ global-exclude .DS_Store
 global-exclude *.png
 
 include versioneer.py
-include pandas_redshift/_version.py
+include pandas_amazon_redshift/_version.py

@@ -1,7 +1,8 @@
-pandas-redshift
-===============
+pandas-amazon-redshift
+======================
 
-**pandas-redshift** is a package to provide an interface between the Amazon Redshift Data API and pandas.
+**pandas-amazon-redshift** is a package to provide an interface between
+the Amazon Redshift Data API and pandas.
 
 This package allows you to pass data between Amazon Redshift and``pandas.DataFrame``
 objects without managing database connections. 

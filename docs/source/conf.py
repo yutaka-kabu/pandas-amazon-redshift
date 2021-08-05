@@ -18,12 +18,12 @@ from datetime import datetime
 
 sys.path.insert(0, os.path.abspath(".."))
 
-import pandas_redshift
-import pandas_redshift.errors
+import pandas_amazon_redshift
+import pandas_amazon_redshift.errors
 
 # -- Project information -----------------------------------------------------
 
-project = "pandas-redshift"
+project = "pandas-amazon-redshift"
 copyright = "2021-{}, Yutaka Kabutoya".format(datetime.now().year)
 author = "Yutaka Kabutoya"
 
@@ -60,7 +60,7 @@ html_theme = "alabaster"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
 
-version = pandas_redshift.__version__
+version = pandas_amazon_redshift.__version__
 
 release = version
 

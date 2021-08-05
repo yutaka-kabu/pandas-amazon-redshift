@@ -16,8 +16,8 @@ def main(
     database,
     db_user,
 ):
-    # [START pandas_redshift_read_redshift_simple]
-    import pandas_redshift
+    # [START pandas_amazon_redshift_read_redshift_simple]
+    import pandas_amazon_redshift
 
     # TODO: Set cluster_identifier to specify your Redshift cluster.
     # cluster_identifier = "my-cluster"
@@ -35,10 +35,10 @@ def main(
     WHERE  sales.dateid = date.dateid
     AND    caldate = '2008-01-05';
     """
-    df = pandas_redshift.read_redshift(
+    df = pandas_amazon_redshift.read_redshift(
         sql, cluster_identifier, database, db_user=db_user
     )
-    # [END pandas_redshift_read_redshift_simple]
+    # [END pandas_amazon_redshift_read_redshift_simple]
     print(df)
     return df
 

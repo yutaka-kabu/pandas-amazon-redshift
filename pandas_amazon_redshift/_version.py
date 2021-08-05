@@ -42,8 +42,8 @@ def get_config():
     cfg.VCS = "git"
     cfg.style = "pep440"
     cfg.tag_prefix = ""
-    cfg.parentdir_prefix = "pandas_redshift-"
-    cfg.versionfile_source = "pandas_redshift/_version.py"
+    cfg.parentdir_prefix = "pandas_amazon_redshift-"
+    cfg.versionfile_source = "pandas_amazon_redshift/_version.py"
     cfg.verbose = False
     return cfg
 
