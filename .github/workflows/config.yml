@@ -12,7 +12,7 @@ jobs:
       - name: lint
         run: nox -s lint
 
-  pip-3.7:
+  pip37:
     name: pip-3.7
     runs-on: ubuntu-latest
     container:
