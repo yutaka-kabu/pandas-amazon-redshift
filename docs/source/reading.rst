@@ -22,8 +22,8 @@ Redshift and download the results as a :class:`pandas.DataFrame` object.
 Inferring the DataFrame's dtypes
 ================================
 
-The :func:`~pandas_gbq.read_gbq` method infers the pandas dtype for each
-column, based on the Redshift table schema.
+The :func:`pandas_amazon_redshift.read_redshift` method infers the pandas dtype
+for each column, based on the Redshift table schema.
 
 =================== ====================================================================
 Redshift Data Type  dtype
