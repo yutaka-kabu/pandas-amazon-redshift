@@ -19,3 +19,17 @@ not officially supported by Amazon Web Services.
 
 Now I am looking for contributors to enhance this package. If you are interested, feel free to pull
 requests or reach out to me.
+
+Install latest release version via pip
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: shell
+
+   $ pip install pandas-gbq
+
+Install latest development version
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: shell
+
+    $ pip install git+https://github.com/yutaka-kabu/pandas-amazon-redshift.git
