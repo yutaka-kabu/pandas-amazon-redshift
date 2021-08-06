@@ -25,7 +25,7 @@ Install latest release version via pip
 
 .. code-block:: shell
 
-   $ pip install pandas-gbq
+   $ pip install pandas-amazon-redshift
 
 Install latest development version
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
